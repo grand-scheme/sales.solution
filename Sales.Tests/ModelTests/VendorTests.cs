@@ -63,8 +63,22 @@ namespace Sales.Tests
       Vendor vendor1 = new Vendor(test1);
       Vendor vendor2 = new Vendor(test2);
       Vendor testingID = Vendor.Lookup(2);
-      Assert.AreNotEqual(vendor2.VendorName, testingID.VendorName);
+      Assert.AreEqual(vendor2.VendorName, testingID.VendorName);
     }
-    // end test 9
+    // end test 10
+    [TestMethod] // test 11
+    public void AddOrder_TiesOrderToVendor_OrderList()
+    {
+      Order dummyOrder = new Order("dummy name", "dummy descrip", 999);
+      List<Order> dummyList = new List<Order> { dummyOrder };
+      Vendor dummyVendor = new Vendor("Julien's");
+      dummyVendor.AddOrder(dummyOrder);
+
+      List<Order> testOrder = dummyVendor.Orders;
+
+      CollectionAssert.AreEqual(dummyList, testOrder);
+    }
+    // end test 11
+      
   }
 }

@@ -33,5 +33,10 @@ namespace Sales.Models
     {
       _vendors.Clear();
     }
+
+    public void AddOrder(Order orderInput) // adds order list to vendor singular
+    {
+      Orders.Add(orderInput);
+    }
   }
 }
