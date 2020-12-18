@@ -25,7 +25,7 @@ namespace Sales
 
     public void Configure(IApplicationBuilder app)
     {
-      app.UseStaticFiles();
+      app.UseStaticFiles(); // use CSS + Images
 
       app.UseDeveloperExceptionPage();
 
