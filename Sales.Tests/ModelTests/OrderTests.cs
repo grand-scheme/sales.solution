@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Sales.Models;
-// using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Sales.Tests
 {
@@ -10,9 +10,11 @@ namespace Sales.Tests
   {
 
     [TestMethod]
-    public void QQ_FIRST_TEST()
+    public void OrderConstructor_CreatesNewOrder_newOrder()
     {
-      // 
+      Order dummyOrder = new Order("dummyValue");
+      string dummyOrder2 = "bad value";
+      Assert.AreEqual(typeof(Order), dummyOrder2.GetType());
     }
   }
 }
