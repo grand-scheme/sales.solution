@@ -56,14 +56,14 @@ namespace Sales.Tests
     // end of test 4
 
     [TestMethod] // test 5
-    public void OrderConstructor_RetrieveByID_Order()
+    public void OrderConstructor_RetrieveByID_OrderID()
     {
       Order test1 = new Order("name1", "description1", 17.50);
       Order test2 = new Order("name2", "description2", 27.50);
       Order test3 = new Order("name3", "description3", 37.50);
       //
-      Order jimbo = Order.Lookup(0);
-      Assert.AreEqual(jimbo, test1);
+      Order jimbo = Order.Lookup(3);
+      Assert.AreEqual(jimbo.ID, test3.ID);
     }
     // end of test 5
   }
