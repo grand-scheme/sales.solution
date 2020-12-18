@@ -8,6 +8,7 @@ namespace Sales.Models
     public string ProductName { get; set; }
     public string ProductDescription { get; set; }
     public double ProductPrice { get; set; }
+    public int ID { get; }
     // public int OrderDate {did we do anything with dates??? look into this later.}
     private static List<Order> _products = new List<Order> {} ;
 
@@ -16,6 +17,16 @@ namespace Sales.Models
       ProductName = productName;
       ProductDescription = productDescription;
       ProductPrice = productPrice;
+      _products.Add(this);
+      ID = _products.Count;
+    }
+
+
+
+    ///////////////
+    public static void ClearAll()
+    {
+      _products.Clear();
     }
   }
 }

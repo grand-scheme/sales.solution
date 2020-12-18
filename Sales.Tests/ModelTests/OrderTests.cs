@@ -6,9 +6,13 @@ using System.Collections.Generic;
 namespace Sales.Tests
 {
   [TestClass]
-  public class OrderTest
+  public class OrderTest : IDisposable
   {
-
+    public void Dispose()
+    {
+      Order.ClearAll();
+    }
+  
     [TestMethod]
     public void OrderConstructor_CreatesNewOrder_newOrder()
     {
@@ -35,6 +39,16 @@ namespace Sales.Tests
       string newDescrip = "or maybe with a G"; 
       thirdDummy.ProductDescription = newDescrip;
       Assert.AreEqual(thirdDummy.ProductDescription, newDescrip);
+    }
+
+    [TestMethod]
+    public void OrderConstructor_SetAnID_ID()
+    {
+      string name = "geoff";
+      string descrip = "with a g";
+      double price = 199.99;
+      Order fourthDummy = new Order(name, descrip, price);
+      Assert.AreEqual(1, fourthDummy.ID);
     }
   }
 }
