@@ -12,9 +12,9 @@ namespace Sales.Tests
     [TestMethod]
     public void OrderConstructor_CreatesNewOrder_newOrder()
     {
-      Order dummyOrder = new Order("dummyValue");
+      Order dummyOrder = new Order("dummyValue", "secondValue", 7.5);
       string dummyOrder2 = "bad value";
-      Assert.AreEqual(typeof(Order), dummyOrder2.GetType());
+      Assert.AreEqual(typeof(Order), dummyOrder.GetType());
     }
   }
 }
