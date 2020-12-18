@@ -37,7 +37,23 @@ namespace Sales.Tests
       Vendor newVendor = new Vendor(vendorName);
       int resultID = newVendor.ID;
 
-      Assert.AreNotEqual(1, resultID);
+      Assert.AreEqual(1, resultID);
     }
+    // end of test 8
+
+    [TestMethod] // test 9
+    public void Collect_RetrievesAllVendors_VendorList()
+    {
+      string test1 = "Larry's";
+      string test2 = "Laurie's";
+      Vendor vendor1 = new Vendor(test1);
+      Vendor vendor2 = new Vendor(test2);
+      List<Vendor> vendorList = new List<Vendor> { vendor1, vendor2 };
+      List<Vendor> resultList = Vendor.Collect();
+
+      CollectionAssert.AreNotEqual(vendorList, resultList); 
+
+    }
+    // end of test 9
   }
 }
