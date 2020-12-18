@@ -6,8 +6,12 @@ using System.Collections.Generic;
 namespace Sales.Tests
 {
   [TestClass]
-  public class VendorTest
+  public class VendorTest : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
 
     [TestMethod] // test 6
     public void VendorConstructor_CreatesIndividualVendor_Vendor()
@@ -23,8 +27,17 @@ namespace Sales.Tests
       string vendorName = "Bob's";
       Vendor newVendor = new Vendor(vendorName);
       string test = newVendor.VendorName;
-      Assert.AreNotEqual(vendorName, test);
+      Assert.AreEqual(vendorName, test);
     }
     // end of test 7
+    [TestMethod] // test 8
+    public void VendorConstructor_RetrievesID_Int()
+    {
+      string vendorName = "Carol's";
+      Vendor newVendor = new Vendor(vendorName);
+      int resultID = newVendor.ID;
+
+      Assert.AreNotEqual(1, resultID);
+    }
   }
 }
