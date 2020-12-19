@@ -20,8 +20,6 @@ namespace Sales.Models
       ID = _products.Count;
     }
 
-
-
     /////////////// static functions
     public static List<Order> Collect() // retrieve all products in order (belonging to vendor)
     {

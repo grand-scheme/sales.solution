@@ -17,6 +17,10 @@ namespace Sales.Models
       Orders = new List<Order> {};
     }
 
+    public void AddOrder(Order orderInput) // adds order list to vendor singular
+    {
+      Orders.Add(orderInput);
+    }
 
     /////////////// static functions
     public static List<Vendor> Collect() // retrieve all products in order (belonging to vendor)
@@ -29,14 +33,9 @@ namespace Sales.Models
       return _vendors[searchNo - 1];
     }
 
-    public static void ClearAll() // remove all products from list. mostly for testing purposes. but possibly utilized in user interaction too.
+    public static void ClearAll() // remove all products from list.
     {
       _vendors.Clear();
-    }
-
-    public void AddOrder(Order orderInput) // adds order list to vendor singular
-    {
-      Orders.Add(orderInput);
     }
   }
 }
