@@ -11,3 +11,11 @@
   <br />
   @Model["vendor"].VendorName
 </p>
+
+@foreach (var order in @Model["orders"])
+{
+  <li><a href='/vendors/@Model["vendor"].ID/orders/@order.ID'>@order.ProductDescription</a></li>
+}
+
+<a href='/vendors/@Model["vendor"].ID/orders/new'>Add another order</a>
+<a href='/vendors'>View all vendors</a>

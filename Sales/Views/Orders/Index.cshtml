@@ -1,0 +1,26 @@
+@using Sales.Models;
+@{
+  Layout = "_Layout";
+}
+
+<h1> 
+  [DUMMY TITLE TEXT // ORDERS INDEX] 
+</h1>
+
+@if (@Model.Count == 0)
+{
+  <p> 
+    [ blank space bc blank orders ] 
+  </p>
+}
+
+@foreach (Order singleOrder in Model)
+{
+  <p>
+    <a href="/orders/@singleOrder.ID">
+      @singleOrder.ProductName
+    </a>
+  </p>
+}
+
+@* Footer HTML *@
