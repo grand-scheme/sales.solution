@@ -4,36 +4,36 @@ namespace Sales.Models
 {
   public class Order
   {
-    public string ProductName { get; set; }
-    public string ProductDescription { get; set; }
-    public double ProductPrice { get; set; }
-    public int ID { get; }
+    public string Name { get; set; }
+    public double Price { get; set; }
+    public string Description { get; set; }
+    public int Id { get; }
     // public int OrderDate {did we do anything with dates??? look into this later.}
-    private static List<Order> _products = new List<Order> {} ;
+    private static List<Order> _instances = new List<Order> {} ;
 
-    public Order(string productName, string productDescription, double productPrice)
+    public Order(string name, string description, double price)
     {
-      ProductName = productName;
-      ProductDescription = productDescription;
-      ProductPrice = productPrice;
-      _products.Add(this);
-      ID = _products.Count;
+      Name = name;
+      Price = price;
+      Description = description;
+      _instances.Add(this);
+      Id = _instances.Count;
     }
 
     /////////////// static functions
-    public static List<Order> Collect() // retrieve all products in order (belonging to vendor)
+    public static List<Order> GetAll() // retrieve all products in order (belonging to vendor)
     {
-      return _products;
+      return _instances;
     }
 
-    public static Order Lookup(int searchNo) // look up single product in order //
+    public static void ClearAll()
     {
-      return _products[searchNo - 1];
+      _instances.Clear();
     }
 
-    public static void ClearAll() // remove all products from list. mostly for testing purposes. but possibly utilized in user interaction too.
+    public static Order Find(int searchId) // look up single product in order //
     {
-      _products.Clear();
-    }
+      return _instances[searchId - 1];
+    }    
   }
 }

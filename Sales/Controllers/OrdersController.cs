@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using Microsoft.AspNetCore.Mvc;
 using Sales.Models;
 
@@ -6,36 +7,30 @@ namespace Sales.Controllers
 {
   public class OrdersController : Controller
   {
-    // [HttpGet("/vendors/{vendorID}/orders/new")]
-    // public ActionResult Index()
-    // {
-    //   List<Order> allOrders = Order.Collect();
-    //   return View(allOrders);
-    // }
-
-    [HttpGet("/vendors/{vendorID}/orders/new")]
-    public ActionResult New(int vendorID)
+    [HttpGet("/vendors/{vendorId}/orders/new")]
+    public ActionResult New(int vendorId)
     {
-      Vendor targettedVendor = Vendor.Lookup(vendorID);
-      return View(targettedVendor);
+      Vendor vendor = Vendor.Find(vendorId);
+      return View(vendor);
     }
 
-    [HttpPost("/vendors/{vendorID}/orders/delete")]
+    [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
+    public ActionResult Show(int vendorId, int orderId)
+    {
+      Order order = Order.Find(orderId);
+      Vendor vendor = Vendor.Find(vendorId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("order", order);
+      model.Add("vendor", vendor);
+      return View(model);
+    }
+
+    // [HttpPost("/vendors/{vendorId}/orders/delete")]
+    [HttpPost("/orders/delete")]
     public ActionResult DeleteAll()
     {
       Order.ClearAll();
       return View();
-    }
-
-    [HttpGet("/vendors/{vendorID}/orders/{orderID}")]
-    public ActionResult Show(int vendorID, int orderID)
-    {
-      Order calledOrder = Order.Lookup(orderID);
-      Vendor targettedVendor = Vendor.Lookup(vendorID);
-      Dictionary<string, object> salesModel = new Dictionary<string, object>();
-      salesModel.Add("order", calledOrder);
-      salesModel.Add("vendor", targettedVendor);
-      return View(salesModel);
     }
   }
 }

@@ -4,38 +4,44 @@ namespace Sales.Models
 {
   public class Vendor
   {
-    private static List<Vendor> _vendors = new List<Vendor> {};
-    public string VendorName { get; set; }
-    public int ID { get; }
+    private static List<Vendor> _instances = new List<Vendor> {};
+    public string Name { get; set; }
+    public int Id { get; }
     public List<Order> Orders { get; set; }
 
     public Vendor(string vendorName)
     {
-      VendorName = vendorName;
-      _vendors.Add(this);
-      ID = _vendors.Count;
+      Name = vendorName;
+      _instances.Add(this);
+      Id = _instances.Count;
       Orders = new List<Order> {};
-    }
-
-    public void AddOrder(Order orderInput) // adds order list to vendor singular
-    {
-      Orders.Add(orderInput);
-    }
-
-    /////////////// static functions
-    public static List<Vendor> Collect() // retrieve all products in order (belonging to vendor)
-    {
-      return _vendors;
-    }
-
-    public static Vendor Lookup(int searchNo) // look up single product in order //
-    {
-      return _vendors[searchNo - 1];
     }
 
     public static void ClearAll() // remove all products from list.
     {
-      _vendors.Clear();
+      _instances.Clear();
     }
+    
+    public static List<Vendor> GetAll() // retrieve all products in order (belonging to vendor)
+    {
+      return _instances;
+    }
+    
+    public static Vendor Find(int searchId) // look up single product in order //
+    {
+      return _instances[searchId - 1];
+    }
+    
+    public void AddOrder(Order order) // adds order list to vendor singular
+    {
+      Orders.Add(order);
+    }
+
+    /////////////// static functions
+    
+
+    
+
+    
   }
 }

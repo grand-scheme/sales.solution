@@ -26,18 +26,18 @@ namespace Sales.Tests
     {
       string vendorName = "Bob's";
       Vendor newVendor = new Vendor(vendorName);
-      string test = newVendor.VendorName;
+      string test = newVendor.Name;
       Assert.AreEqual(vendorName, test);
     }
     // end of test 7
     [TestMethod] // test 8
-    public void VendorConstructor_RetrievesID_Int()
+    public void VendorConstructor_RetrievesId_Int()
     {
       string vendorName = "Carol's";
       Vendor newVendor = new Vendor(vendorName);
-      int resultID = newVendor.ID;
+      int resultId = newVendor.Id;
 
-      Assert.AreEqual(1, resultID);
+      Assert.AreEqual(1, resultId);
     }
     // end of test 8
 
@@ -49,21 +49,21 @@ namespace Sales.Tests
       Vendor vendor1 = new Vendor(test1);
       Vendor vendor2 = new Vendor(test2);
       List<Vendor> vendorList = new List<Vendor> { vendor1, vendor2 };
-      List<Vendor> resultList = Vendor.Collect();
+      List<Vendor> resultList = Vendor.GetAll();
 
       CollectionAssert.AreEqual(vendorList, resultList); 
 
     }
     // end of test 9
     [TestMethod] // test 10
-    public void Lookup_RetrievesVendorByID_Vendor()
+    public void Lookup_RetrievesVendorById_Vendor()
     {
       string test1 = "Manny's";
       string test2 = "Maria's";
       Vendor vendor1 = new Vendor(test1);
       Vendor vendor2 = new Vendor(test2);
-      Vendor testingID = Vendor.Lookup(2);
-      Assert.AreEqual(vendor2.VendorName, testingID.VendorName);
+      Vendor testingId = Vendor.Find(2);
+      Assert.AreEqual(vendor2.Name, testingId.Name);
     }
     // end test 10
     [TestMethod] // test 11

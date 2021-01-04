@@ -10,7 +10,7 @@ namespace Sales.Controllers
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendor> allVendors = Vendor.Collect();
+      List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
     }
     
@@ -23,33 +23,33 @@ namespace Sales.Controllers
     [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
     {
-      Vendor aNewVendor = new Vendor(vendorName);
+      Vendor newVendor = new Vendor(vendorName);
       return RedirectToAction("Index");
     }
 
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
-      Dictionary<string, object> salesModel = new Dictionary<string, object>();
-      Vendor chosenVendor = Vendor.Lookup(id);
-      List<Order> vendorsOrders = chosenVendor.Orders;
-      salesModel.Add("vendor", chosenVendor);
-      salesModel.Add("orders", vendorsOrders);
-      return View(salesModel);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor selectedVendor = Vendor.Find(id);
+      List<Order> vendorsOrders = selectedVendor.Orders;
+      model.Add("vendor", selectedVendor);
+      model.Add("orders", vendorsOrders);
+      return View(model);
     }
 
     ////
-    [HttpPost("/vendors/{vendorID}/orders")]
-    public ActionResult Create(int vendorID, string productName, string productDescription, double productPrice)
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string name, string description, double price)
     {
-      Dictionary<string, object> salesModel = new Dictionary<string, object>();
-      Vendor targettedVendor = Vendor.Lookup(vendorID);
-      Order newOrder = new Order(productName, productDescription, productPrice); 
-      targettedVendor.AddOrder(newOrder);
-      List<Order> vendorOrders = targettedVendor.Orders;
-      salesModel.Add("order", vendorOrders);
-      salesModel.Add("vendor", targettedVendor);
-      return View("Show", salesModel);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(name, description, price); 
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrders = foundVendor.Orders;
+      model.Add("order", vendorOrders);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
     }
   }
 }
