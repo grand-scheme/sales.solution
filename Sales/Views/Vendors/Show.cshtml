@@ -4,11 +4,21 @@
 
 @using Sales.Models;
 
-<p>
-  [Dummy Text // SHOW VENDORS]
-</p>
-
+<h1>
+  @Model["vendor"].Name
+</h1>
+<div class="outputContainer">
+  @Model["vendor"].Description
+  <br />
+  @Model["vendor"].Name receives their delivery on @Model["vendor"].Date
+</div>
 <ul>
+  @if (@Model["orders"].Count == 0)
+{
+  <p>
+    @Model["vendor"].Name does not have any orders.
+  </p>
+}
   @foreach (Order order in @Model["orders"])
   {
     <li>
@@ -19,6 +29,8 @@
   }
 </ul>
 
-<a href='/vendors/@Model["vendor"].Id/orders/new'>add new order</a>
-<a href='/vendors'>back to all vendors</a>
-<a href='/'>back to main</a>
+<div class="footer">
+<a href='/vendors/@Model["vendor"].Id/orders/new'>Add New Order</a>
+<br />
+<a href="/">Back home</a> & <a href="/vendors">Back to vendors</a>
+</div>
