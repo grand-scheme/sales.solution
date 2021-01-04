@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 using Microsoft.AspNetCore.Mvc;
 using Sales.Models;
 
@@ -25,7 +24,6 @@ namespace Sales.Controllers
       return View(model);
     }
 
-    // [HttpPost("/vendors/{vendorId}/orders/delete")]
     [HttpPost("/orders/delete")]
     public ActionResult DeleteAll()
     {
