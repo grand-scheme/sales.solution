@@ -14,11 +14,11 @@
   </p>
 }
 
-@foreach (Vendor singleVendor in Model)
+@foreach (Vendor vendor in Model)
 {
   <p>
-    <a href="/vendors/@singleVendor.ID">
-      @singleVendor.VendorName
+    <a href="/vendors/@vendor.Id">
+      @vendor.Name
     </a>
   </p>
 }

@@ -9,16 +9,16 @@
 </p>
 
 <ul>
-  @foreach (Order singleOrder in @Model["orders"])
+  @foreach (Order order in @Model["orders"])
   {
     <li>
-      <a href='/vendors/@Model["vendor"].ID/orders/@singleOrder.ID'>
-      @singleOrder.ProductName
+      <a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>
+      @order.Name
       </a>
     </li>
   }
 </ul>
 
-<a href='/vendors/@Model["vendor"].ID/orders/new'>add new order</a>
+<a href='/vendors/@Model["vendor"].Id/orders/new'>add new order</a>
 <a href='/vendors'>back to all vendors</a>
 <a href='/'>back to main</a>

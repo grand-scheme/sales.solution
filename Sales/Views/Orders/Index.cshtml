@@ -14,11 +14,11 @@
   </p>
 }
 
-@foreach (Order singleOrder in Model)
+@foreach (Order order in Model)
 {
   <p>
-    <a href="/orders/@singleOrder.ID">
-      @singleOrder.ProductName
+    <a href="/orders/@order.Id">
+      @order.Name
     </a>
   </p>
 }
