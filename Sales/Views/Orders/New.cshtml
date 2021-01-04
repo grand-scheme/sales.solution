@@ -2,9 +2,9 @@
   Layout = "_Layout";
 }
 
-<form action="/vendors/@Model.Id/orders" method="post">
+<form action="/vendors/@Model.Id/orders" method="post" class="form-group inputContainer">
   <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
   <label for="orderDescription">What are we adding?</label>
-  <input id="orderDescription" name="orderDescription" type="text">
-  <button type="submit">Add </button>
+  <input id="orderDescription" name="orderDescription" type="text" class="form-control round-it"><br />
+  <button type="submit" class="btn-dark round-it">Add </button>
 </form>

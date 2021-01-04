@@ -1,28 +1,35 @@
 @{
   Layout = "_Layout";
 }
+
 @using Sales.Models;
 
 <h1> 
-  [DUMMY TITLE TEXT // VENDOR INDEX] 
+  Vendor Index 
 </h1>
 
+<ol>
 @if (@Model.Count == 0)
 {
-  <p> 
-    [ blank space bc blank vendors ] 
+  <p>
+    No vendors have been added to your index.
   </p>
 }
 
 @foreach (Vendor vendor in Model)
 {
-  <p>
+  <li>
     <a href="/vendors/@vendor.Id">
       @vendor.Name
-    </a>
-  </p>
+    </a><br />
+      @vendor.Description
+      <br />
+      @vendor.Name receives their delivery on @vendor.Date
+  </li>
 }
+</ol>
 
-<a href="/">Back to home</a>
+<a href="/">Back to home</a><br />
+<a href="/vendors/new">Add new vendor</a>
 
 @* Footer HTML *@

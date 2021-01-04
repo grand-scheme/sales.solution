@@ -2,15 +2,17 @@
   Layout = "_Layout";
 }
 
-<p>
+<h1>
   [DUMMY TEXT // SHOW ORDERS]
-</p>
+</h1>
 
+<div class="form-group outputContainer">
 <p>
   @Model["order"].Description
   <br />
   Vendor: @Model["vendor"].Name
 </p>
+</div>
 
 <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
 <a href='/vendors'>View all vendors</a>
