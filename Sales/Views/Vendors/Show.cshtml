@@ -7,7 +7,7 @@
 <h1>
   @Model["vendor"].Name
 </h1>
-<div class="outputContainer">
+<div class="textContainer">
   @Model["vendor"].Description
   <br />
   @Model["vendor"].Name receives their deliveries on @Model["vendor"].Date
@@ -32,5 +32,5 @@
 <div class="footer">
 <a href='/vendors/@Model["vendor"].Id/orders/new'>Add New Order</a>
 <br />
-<a href="/">Back home</a> & <a href="/vendors">Back to vendors</a>
+<a href="/">Home</a> & <a href="/vendors">View All Vendors</a>
 </div>

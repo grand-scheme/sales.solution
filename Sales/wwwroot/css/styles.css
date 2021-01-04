@@ -22,9 +22,9 @@ a {
   font-weight: bold;
 }
 
-.form-group {
+.form-group, .footer {
   margin: auto;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .round-it {
@@ -34,14 +34,17 @@ a {
   padding: 0.25rem 1rem;
 }
 
-ul, ol, .outputContainer, .inputContainer {
+ul, ol, .textContainer {
   background: #B6B6CD;
   margin: auto;
+  text-align: start;
+}
+
+ul, ol, .textContainer, .footer {
   margin-top:3.5rem;
   border-radius: 1.5rem;
   padding: 1.5rem 1.25rem 1rem 2.5rem;
   width:75%;
-  text-align: start;
   font-size: 2rem;
 }
 
@@ -51,9 +54,4 @@ ul {
 
 ol {
   padding-left:5rem;
-}
-
-.footer {
-  margin: auto;
-  text-align: center;
 }
