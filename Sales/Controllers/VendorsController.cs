@@ -21,9 +21,9 @@ namespace Sales.Controllers
     }
 
     [HttpPost("/vendors")]
-    public ActionResult Create(string vendorName)
+    public ActionResult Create(string vendorName, string vendorDescription, string vendorDate)
     {
-      Vendor newVendor = new Vendor(vendorName);
+      Vendor newVendor = new Vendor(vendorName, vendorDescription, vendorDate);
       return RedirectToAction("Index");
     }
 
