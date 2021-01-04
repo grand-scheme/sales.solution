@@ -32,5 +32,6 @@ namespace Sales.Controllers
       Order.ClearAll();
       return View();
     }
+    
   }
 }

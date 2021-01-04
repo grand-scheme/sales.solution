@@ -6,6 +6,7 @@ namespace Sales.Controllers
 {
   public class VendorsController : Controller
   {
+
     // GET requests
     [HttpGet("/vendors")]
     public ActionResult Index()
@@ -51,5 +52,6 @@ namespace Sales.Controllers
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
+    
   }
 }

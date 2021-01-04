@@ -20,32 +20,26 @@ namespace Sales.Models
       Id = _instances.Count;
       Orders = new List<Order> {};
     }
-
-    public static void ClearAll() // remove all products from list.
+    
+    public void AddOrder(Order order)
+    {
+      Orders.Add(order);
+    }
+    
+    // STATIC methods
+    public static void ClearAll()
     {
       _instances.Clear();
     }
     
-    public static List<Vendor> GetAll() // retrieve all products in order (belonging to vendor)
+    public static List<Vendor> GetAll()
     {
       return _instances;
     }
     
-    public static Vendor Find(int searchId) // look up single product in order //
+    public static Vendor Find(int searchId)
     {
       return _instances[searchId - 1];
     }
-    
-    public void AddOrder(Order order) // adds order list to vendor singular
-    {
-      Orders.Add(order);
-    }
-
-    /////////////// static functions
-    
-
-    
-
-    
   }
 }
