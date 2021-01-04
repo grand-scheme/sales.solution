@@ -16,7 +16,7 @@ namespace Sales.Tests
     [TestMethod] // test 6
     public void VendorConstructor_CreatesIndividualVendor_Vendor()
     {
-      Vendor dummyVendor = new Vendor("dummy vendor");
+      Vendor dummyVendor = new Vendor("dummy vendor", "2", "3");
       Assert.AreEqual(typeof(Vendor), dummyVendor.GetType());
     }
     // end of test 6
@@ -25,7 +25,7 @@ namespace Sales.Tests
     public void VendorConstructor_RetrievesName_String()
     {
       string vendorName = "Bob's";
-      Vendor newVendor = new Vendor(vendorName);
+      Vendor newVendor = new Vendor(vendorName, "carol", "12");
       string test = newVendor.Name;
       Assert.AreEqual(vendorName, test);
     }
@@ -34,7 +34,7 @@ namespace Sales.Tests
     public void VendorConstructor_RetrievesId_Int()
     {
       string vendorName = "Carol's";
-      Vendor newVendor = new Vendor(vendorName);
+      Vendor newVendor = new Vendor(vendorName, "carol", "12");
       int resultId = newVendor.Id;
 
       Assert.AreEqual(1, resultId);
@@ -46,8 +46,8 @@ namespace Sales.Tests
     {
       string test1 = "Larry's";
       string test2 = "Laurie's";
-      Vendor vendor1 = new Vendor(test1);
-      Vendor vendor2 = new Vendor(test2);
+      Vendor vendor1 = new Vendor(test1, "carol", "12");
+      Vendor vendor2 = new Vendor(test2, "carol", "12");
       List<Vendor> vendorList = new List<Vendor> { vendor1, vendor2 };
       List<Vendor> resultList = Vendor.GetAll();
 
@@ -60,8 +60,8 @@ namespace Sales.Tests
     {
       string test1 = "Manny's";
       string test2 = "Maria's";
-      Vendor vendor1 = new Vendor(test1);
-      Vendor vendor2 = new Vendor(test2);
+      Vendor vendor1 = new Vendor(test1, "carol", "12");
+      Vendor vendor2 = new Vendor(test2, "carol", "12");
       Vendor testingId = Vendor.Find(2);
       Assert.AreEqual(vendor2.Name, testingId.Name);
     }
@@ -69,9 +69,9 @@ namespace Sales.Tests
     [TestMethod] // test 11
     public void AddOrder_TiesOrderToVendor_OrderList()
     {
-      Order dummyOrder = new Order("dummy name", "dummy descrip", 999);
+      Order dummyOrder = new Order("dummy name", "dummy descrip", "999");
       List<Order> dummyList = new List<Order> { dummyOrder };
-      Vendor dummyVendor = new Vendor("Julien's");
+      Vendor dummyVendor = new Vendor("Julien's", "carol", "12");
       dummyVendor.AddOrder(dummyOrder);
 
       List<Order> testOrder = dummyVendor.Orders;
