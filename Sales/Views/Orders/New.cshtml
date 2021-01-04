@@ -4,16 +4,22 @@
 
 <form action="/vendors/@Model.Id/orders" method="post" class="form-group textContainer">
   <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
+
   <label for="orderName">Name for the Order:</label>
   <input id="orderName" name="orderName" type="text"><br />
+
   <label for="orderDescription">What is @Model.Name getting?:</label>
   <input id="orderDescription" name="orderDescription" type="text"><br />
+
   <label for="orderPrice">Amount Due:</label>
   <input id="orderPrice" name="orderPrice" type="text"><br />
-    <button type="submit" class="btn-dark round-it">Add Order</button>
+
+  <button type="submit" class="btn-dark round-it">Add Order</button><br />
+
 </form>
 
-<div class="footer">
-<a href='/vendors/@Model.Id/'>See other orders for @Model.Name</a><br />
-<a href="/">Home</a> & <a href="/vendors">View All Vendors</a>
-</div>
+<br />
+  <a class="nav-links" href='/vendors/@Model.Id/'>See other orders for @Model.Name</a>
+<br />
+
+@await Html.PartialAsync("NavHome")

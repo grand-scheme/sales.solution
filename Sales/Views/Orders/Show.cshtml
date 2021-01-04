@@ -8,16 +8,16 @@
   Upcoming Order
 </h1>
 
-
 <p class="form-group textContainer">
-  Name for the order: <strong> @Model["order"].Name </strong>
-  <br />
+  Name for the order: <strong> @Model["order"].Name </strong> <br />
   @Model["order"].Description <br />
   @Model["vendor"].Name will owe: $ @Model["order"].Price <br />
+  
+  <div class="nav-links">
+    Manage orders for @Model["vendor"].Name: <br />
+    <a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a><br />
+    <a href='/vendors/@Model["vendor"].Id/'>See their other orders</a><br />
+  </div>
 </p>
 
-<div class="footer">Manage orders for @Model["vendor"].Name: <br />
-<a href='/vendors/@Model["vendor"].Id/orders/new'>Add an order</a><br />
-<a href='/vendors/@Model["vendor"].Id/'>See their other orders</a><br />
-<a href="/">Home</a> & <a href="/vendors">View All Vendors</a>
-</div>
+@await Html.PartialAsync("NavHome")

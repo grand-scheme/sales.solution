@@ -9,27 +9,24 @@
 </h1>
 
 <ol>
-@if (@Model.Count == 0)
-{
-  <p>
-    No vendors have been added to your index.
-  </p>
-}
+  @if (@Model.Count == 0)
+  {
+    <p>
+      No vendors have been added to your index.
+    </p>
+  }
 
-@foreach (Vendor vendor in Model)
-{
-  <li>
-    <a href="/vendors/@vendor.Id">
-      @vendor.Name
-    </a><br />
-      @vendor.Description
-      <br />
+  @foreach (Vendor vendor in Model)
+  {
+    <li>
+      <a href="/vendors/@vendor.Id">
+        @vendor.Name
+      </a><br />
+      
+      @vendor.Description<br />
       @vendor.Name receives their deliveries on @vendor.Date
-  </li>
-}
+    </li>
+  }
 </ol>
 
-<div class="footer">
-<a href="/">Back to home</a><br />
-<a href="/vendors/new">Add new vendor</a>
-</div>
+@await Html.PartialAsync("NavHome")
