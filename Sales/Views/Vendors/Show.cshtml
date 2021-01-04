@@ -10,9 +10,9 @@
 <div class="outputContainer">
   @Model["vendor"].Description
   <br />
-  @Model["vendor"].Name receives their delivery on @Model["vendor"].Date
+  @Model["vendor"].Name receives their deliveries on @Model["vendor"].Date
 </div>
-<ul>
+<ol>
   @if (@Model["orders"].Count == 0)
 {
   <p>
@@ -27,7 +27,7 @@
       </a>
     </li>
   }
-</ul>
+</ol>
 
 <div class="footer">
 <a href='/vendors/@Model["vendor"].Id/orders/new'>Add New Order</a>
