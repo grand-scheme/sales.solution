@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using Sales.Models;
 
@@ -7,6 +6,7 @@ namespace Sales.Controllers
 {
   public class VendorsController : Controller
   {
+    // GET requests
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
@@ -20,13 +20,6 @@ namespace Sales.Controllers
       return View();
     }
 
-    [HttpPost("/vendors")]
-    public ActionResult Create(string vendorName, string vendorDescription, string vendorDate)
-    {
-      Vendor newVendor = new Vendor(vendorName, vendorDescription, vendorDate);
-      return RedirectToAction("Index");
-    }
-
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
@@ -36,6 +29,14 @@ namespace Sales.Controllers
       model.Add("vendor", selectedVendor);
       model.Add("orders", vendorsOrders);
       return View(model);
+    }
+
+    // POST requests
+    [HttpPost("/vendors")]
+    public ActionResult Create(string vendorName, string vendorDescription, string vendorDate)
+    {
+      Vendor newVendor = new Vendor(vendorName, vendorDescription, vendorDate);
+      return RedirectToAction("Index");
     }
 
     [HttpPost("/vendors/{vendorId}/orders")]

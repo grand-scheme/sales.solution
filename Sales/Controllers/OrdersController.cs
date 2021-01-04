@@ -6,6 +6,7 @@ namespace Sales.Controllers
 {
   public class OrdersController : Controller
   {
+    // GET requests
     [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
@@ -24,6 +25,7 @@ namespace Sales.Controllers
       return View(model);
     }
 
+    // POST requests
     [HttpPost("/orders/delete")]
     public ActionResult Delete()
     {
