@@ -20,7 +20,7 @@ namespace Sales.Models
       Id = _instances.Count;
     }
 
-    /////////////// static functions
+    // STATIC methods
     public static List<Order> GetAll() // retrieve all products in order (belonging to vendor)
     {
       return _instances;
@@ -28,10 +28,11 @@ namespace Sales.Models
 
     public static void ClearAll()
     {
+    
       _instances.Clear();
     }
 
-    public static Order Find(int searchId) // look up single product in order //
+    public static Order Find(int searchId)
     {
       return _instances[searchId - 1];
     }    
