@@ -1,0 +1,59 @@
+body {
+  overflow-y:scroll;
+  background: #E3E3F2;
+  margin-bottom: 1.5rem;
+  padding-top:3em;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+p {
+  text-align: left;
+}
+
+h1 {
+  color: #696A9E;
+  margin: auto;
+  text-align: center;
+  font-size:7rem;
+}
+
+a {
+  color: #393A7E;
+  font-weight: bold;
+}
+
+.form-group {
+  margin: auto;
+  /* text-align: center; */
+}
+
+.round-it {
+  margin: 0.5rem auto;
+  border-radius: 1.5rem;
+  text-align: center;
+  padding: 0.25rem 1rem;
+}
+
+ul, ol, .outputContainer, .inputContainer {
+  background: #B6B6CD;
+  margin: auto;
+  margin-top:3.5rem;
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.25rem 1rem 2.5rem;
+  width:75%;
+  text-align: start;
+  font-size: 2rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ol {
+  padding-left:5rem;
+}
+
+.footer {
+  margin: auto;
+  text-align: center;
+}
