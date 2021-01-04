@@ -4,7 +4,11 @@
 
 <form action="/vendors/@Model.Id/orders" method="post" class="form-group textContainer">
   <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
-  <label for="orderDescription">What are we adding?</label>
-  <input id="orderDescription" name="orderDescription" type="text" class="form-control round-it"><br />
-  <button type="submit" class="btn-dark round-it">Add </button>
+  <label for="orderName">Name for the Order:</label>
+  <input id="orderName" name="orderName" type="text"><br />
+  <label for="orderDescription">What is @Model.Name getting?:</label>
+  <input id="orderDescription" name="orderDescription" type="text"><br />
+  <label for="orderPrice">Amount Due:</label>
+  <input id="orderPrice" name="orderPrice" type="text"><br />
+    <button type="submit" class="btn-dark round-it">Add Order</button>
 </form>

@@ -39,13 +39,11 @@ namespace Sales.Controllers
     }
 
     [HttpPost("/vendors/{vendorId}/orders")]
-    // public ActionResult Create(int vendorId, string name, string description, double price)
-    public ActionResult Create(int vendorId, string orderDescription)
+    public ActionResult Create(int vendorId, string orderName, string orderDescription, string orderPrice)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
-      // Order newOrder = new Order(name, orderDescription, price); 
-      Order newOrder = new Order(orderDescription); 
+      Order newOrder = new Order(orderName, orderDescription, orderPrice); 
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);

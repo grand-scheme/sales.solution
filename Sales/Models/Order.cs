@@ -4,19 +4,18 @@ namespace Sales.Models
 {
   public class Order
   {
-    // public string Name { get; set; }
-    // public double Price { get; set; }
+    public string Name { get; set; }
+    public double Price { get; set; }
     public string Description { get; set; }
-    public int Id { get; }
-    // public int OrderDate {did we do anything with dates??? look into this later.}
+    public double Id { get; }
     private static List<Order> _instances = new List<Order> {} ;
 
-    // public Order(string name, string description, double price)
-    public Order(string description)
+    public Order(string orderName, string orderDescription, string orderPrice)
     {
-      // Name = name;
-      // Price = price;
-      Description = description;
+      Name = orderName;
+      double parsePrice = (double.TryParse(orderPrice, out parsePrice) && parsePrice > 0) ? parsePrice : 0;
+      Price = parsePrice;
+      Description = orderDescription;
       _instances.Add(this);
       Id = _instances.Count;
     }
